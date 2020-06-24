@@ -1,0 +1,17 @@
+{
+  "development": {
+    "database": "fsjstd-restapi.db",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "test": {
+    "database": "fsjstd-restapi.db",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "production": {
+    "database": "fsjstd-restapi.db",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}
