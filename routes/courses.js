@@ -9,7 +9,7 @@ const authUser = require('./authUser');
 
 // async handler
 function asyncHandler(cb) {
-    return async(req, res, next) {
+    return async(req, res, next) => {
         try{
             await cb(req, res, next);
         } catch (error) {

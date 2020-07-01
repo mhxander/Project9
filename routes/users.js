@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models').User;
 const bcryptjs = require('bcryptjs');
 
-const { userRules, validate } = require('./expressValidator');
+const { userRules, validate } = require('./expressVal');
 const authUser = require('./authUser');
 
 // async handler
