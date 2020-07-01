@@ -2,7 +2,7 @@ const User = require('../models').User;
 const bcryptjs = require('bcryptjs');
 const auth = require('basic-auth');
 
-// Authenication function
+// Authentication function
 
 const authenticate = async(req, res, next) => {
     const credentials = auth(req);
@@ -10,23 +10,26 @@ const authenticate = async(req, res, next) => {
     if (credentials) {
         const user = await User.findOne({
             where: {emailAddress: credentials.name}
-        })
+        });
         if (user) {
             const authenticated = bcryptjs.compareSync(credentials.pass, user.password);
             if (authenticated) {
                 req.currentUser = user;
             } else {
-                authMessage = 'Authentication failed';
+                res.status(401);
+                authMessage = 'Authentication failed-no match';
             }
         } else {
-            authMessage = 'Authentication failed';
+            res.status(401);
+            authMessage = 'Authentication failed-no user with that email address';
         }
     } else {
-        authMessage = 'Auth header not found';
+        res.status(403);
+        authMessage = 'No authorization credentials available.';
     }
     if (authMessage) {
         console.warn(authMessage);
-        res.status(401).json({message: `Access Denied: ${authMessage}`});
+        res.json({message: `Access Denied: ${authMessage}`});
     } else {
         next();
     }

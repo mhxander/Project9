@@ -7,10 +7,10 @@ const { userRules, validate } = require('./expressVal');
 const authUser = require('./authUser');
 
 // async handler
-function asyncHandler(callback) {
+function asyncHandler(cb) {
     return async (req, res, next) => {
         try {
-            await callback(req, res, next);
+            await cb(req, res, next);
         } catch (error) {
             next(error);
         }

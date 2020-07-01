@@ -6,7 +6,6 @@ const User = require('../models').User;
 const {courseRules, validate} = require ('./expressVal');
 const authUser = require('./authUser');
 
-
 // async handler
 function asyncHandler(cb) {
     return async(req, res, next) => {
@@ -25,8 +24,7 @@ router.get('/', asyncHandler(async (req, res) => {
         include: [{ model: User, attributes: ['firstName', 'lastName', 'emailAddress'] }]
     });
     res.json({ courses });
-    })
-);
+}));
 
 //GET request for one course
 router.get('/:id', asyncHandler(async (req, res, next) => {

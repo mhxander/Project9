@@ -36,11 +36,10 @@ module.exports = (sequelize) => {
             allowNull: false,
             validate: {
                 is: {
-                    // args: /^\$2[aby]?\$\d{1,2}\$[.\/A-Za-z0-9]{53}$/i,
-                    args: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
-                    msg: 'Please see system administrator.  Password failed to hash.'
-                }
-            }
+                    args: /^\$2[aby]?\$\d{1,2}\$[.\/A-Za-z0-9]{53}$/i,
+                    msg: 'Password failed to hash. Please contact the site administrator.',
+                },
+            },
         }
     }, {sequelize})
 
