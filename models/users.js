@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 module.exports = (sequelize) => {
     class User extends Sequelize.Model {}
     User.init({
+        //define requirements for User
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
@@ -43,6 +44,7 @@ module.exports = (sequelize) => {
         }
     }, {sequelize})
 
+    //One to many correlation to courses
     User.associate = (models) => {
         User.hasMany(models.Course, {
             foreignKey: {

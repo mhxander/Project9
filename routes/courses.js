@@ -3,6 +3,7 @@ const router = express.Router();
 const Course = require('../models').Course;
 const User = require('../models').User;
 
+//Import from other files
 const {courseRules, validate} = require ('./expressVal');
 const authUser = require('./authUser');
 
@@ -44,7 +45,6 @@ router.get('/:id', asyncHandler(async (req, res, next) => {
     }
 }));
 
-
 //POST a new course
 router.post('/', authUser, courseRules(), validate, asyncHandler(async (req, res) => {
     const newCourse = req.body;
@@ -70,7 +70,6 @@ router.post('/', authUser, courseRules(), validate, asyncHandler(async (req, res
         }
     }
 }));
-
 
 //PUT route to edit a course
 router.put('/:id', authUser, courseRules(), validate, asyncHandler(async (req, res) => {
@@ -99,7 +98,6 @@ router.put('/:id', authUser, courseRules(), validate, asyncHandler(async (req, r
     }
 }));
 
-
 //DELETE a course
 router.delete('/:id', authUser, asyncHandler(async (req, res, next) => {
     const { id } = req.params;
@@ -117,6 +115,5 @@ router.delete('/:id', authUser, asyncHandler(async (req, res, next) => {
         }
     }
 }));
-
 
 module.exports = router

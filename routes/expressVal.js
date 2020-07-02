@@ -32,7 +32,6 @@ const courseRules = () => {
     ];
 };
 
-
 //Send out appropriate errors from info above
 const validate = (req, res, next) => {
     const errors = validationResult(req);

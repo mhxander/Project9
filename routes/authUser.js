@@ -3,7 +3,6 @@ const bcryptjs = require('bcryptjs');
 const auth = require('basic-auth');
 
 // Authentication function
-
 const authenticate = async(req, res, next) => {
     const credentials = auth(req);
     let authMessage = null;
@@ -34,7 +33,5 @@ const authenticate = async(req, res, next) => {
         next();
     }
 };
-
-
 
 module.exports = authenticate;

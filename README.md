@@ -18,7 +18,7 @@ The app can also be accessed by going to your browser and going to "http://local
 
 
 
-
+****Everything below was my project instructions.
 
 ## Overview of the Provided Project Files
 

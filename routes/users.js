@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models').User;
 const bcryptjs = require('bcryptjs');
 
+//Import from other files
 const { userRules, validate } = require('./expressVal');
 const authUser = require('./authUser');
 
@@ -17,7 +18,6 @@ function asyncHandler(cb) {
     };
 }
 
-
 //GET route for current user
 router.get('/', authUser, asyncHandler(async (req, res) => {
     const user = await User.findOne({
@@ -26,7 +26,6 @@ router.get('/', authUser, asyncHandler(async (req, res) => {
     });
     res.json({ user });
 }));
-
 
 //POST route to create a new user
 router.post('/', userRules(), validate, asyncHandler(async (req, res) => {

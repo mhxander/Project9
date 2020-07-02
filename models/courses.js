@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 module.exports = (sequelize) => {
     class Course extends Sequelize.Model{}
     Course.init({
+        //define requirements for Course
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
@@ -16,7 +17,8 @@ module.exports = (sequelize) => {
         description: {
             type: Sequelize.TEXT,
             allowNull: false
-        }, estimatedTime: {
+        }, 
+        estimatedTime: {
             type: Sequelize.STRING,
             allowNull: true
         },
@@ -26,6 +28,7 @@ module.exports = (sequelize) => {
         }
     }, {sequelize})
 
+    //one to one with "userId"
     Course.associate = (models) => {
         Course.belongsTo(models.User, {
             foreignKey: {fieldName: 'userId'}
