@@ -23,7 +23,7 @@ const authenticate = async(req, res, next) => {
             authMessage = 'Authentication failed-no user with that email address';
         }
     } else {
-        res.status(403);
+        res.status(401);
         authMessage = 'No authorization credentials available.';
     }
     if (authMessage) {
